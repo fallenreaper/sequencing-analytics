@@ -162,7 +162,7 @@ def process_large_file(filename: str, referenceCompare = 'A', allSubsCompare='G'
 if __name__ == '__main__':
   if len(sys.argv) < 2:
     print("--- Needs a Filename.  Exiting.")
-    print("    File needs to be a Tab Delimited varient on a CSV. ( Reditools outputs a tab delimited file )")
+    print("    File needs to be a Tab Delimited Value file, a TSV. ( Reditools outputs a tab delimited file )")
     print("    You may feed absolute or Relative path from pwd.")
     exit(1)
   f = sys.argv[1]
@@ -174,4 +174,8 @@ if __name__ == '__main__':
   tcRep = process_large_file(f, referenceCompare='T', allSubsCompare='C')
   print("T->C DataDump")
   pprint(tcRep)
+
+  open(f'{f}_analysis.json', 'w') as fp:
+    json.dump({"AG": agRep, "TC": tcRep}, fp, indent=4)
+
   print("Done!")

@@ -7,6 +7,6 @@ then
 fi
 
 for f in $(ls /data/*.bam); do
-	echo "cd /opt/reditools2.0/src/cineca && python reditools.py -f /data/$f -r /data/hg38.fa -o $f-output.csv &> $f_std_out.txt"
-	cd /opt/reditools2.0/src/cineca && python reditools.py -f /data/$f -r /data/hg38.fa -o $f-output.csv &> $f_std_out.txt &
+	echo "cd /opt/reditools2.0/src/cineca && python reditools.py -f /data/$f -r /data/hg38.fa -o $f-output.tsv &> $f_std_out.txt"
+	cd /opt/reditools2.0/src/cineca && python reditools.py -f /data/$f -r /data/hg38.fa -o $f-output.tsv &> $f_std_out.txt &
 done;
