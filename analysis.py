@@ -120,7 +120,8 @@ def process_large_file(filename: str, referenceCompare = 'A', allSubsCompare='G'
       line = fp.readline()
       if line == "":
         break
-      line = line[:-1] # The last character in readline is a \n which we want to remove. from the string, as a previous iteration auto trimmed the character.
+      if line[-1] == "\n":
+        line = line[:-1] # The last character in readline is a \n which we want to remove. from the string, as a previous iteration auto trimmed the character.
       data = line.split("\t")
       _region, _position, _reference, _strand, _coverageq30, _meanq, _baseCount, _allsubs, _frequency, _gcoverageq30, _gmeanq, _gbaseCount, _gAllSubs, _gFrequency = data
       _reference = data[2] or None
