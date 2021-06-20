@@ -179,7 +179,7 @@ if __name__ == '__main__':
   print("T->C DataDump")
   pprint(tcRep)
 
-  open(f'{f}_analysis.json', 'w') as fp:
+  with open(f'{f}_analysis.json', 'w') as fp:
     json.dump({"AG": agRep, "TC": tcRep}, fp, indent=4)
 
   print("Done!")
