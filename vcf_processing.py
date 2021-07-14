@@ -14,11 +14,11 @@ def read_vcf(path):
     )
 
 def write_vcf(path, df):
-  with open(f'NEW_{path}', 'r') as f:
+  with open(f'{path}', 'r') as f:
     lines = [ l for l in f if l.startswith("##") ]
   with open(f'NEW_{path}', 'w') as f:
     f.writelines(lines)
-  df.to_csv(path, sep='\t', mode='a', index=False)
+  df.to_csv(f'NEW_{path}', sep='\t', mode='a', index=False)
 
 if __name__ == "__main__":
   # Load a CSV into Base Dataframe.
